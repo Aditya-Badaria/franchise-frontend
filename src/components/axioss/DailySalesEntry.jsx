@@ -39,7 +39,7 @@ const DailySalesEntry = () => {
         },
       };
 
-      const res = await axios.post("${import.meta.env.VITE_API_URL}/api/dailysales/add", data, config);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/dailysales/add`, data, config);
       console.log("Submitted data:", res.data);
 
       toast.success("Sales entry submitted successfully");

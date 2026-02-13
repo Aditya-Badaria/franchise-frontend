@@ -16,13 +16,19 @@ const Login = ({ setUser }) => {
     e.preventDefault();
     setIsLoggingIn(true);
     try {
-      const res = await fetch("${import.meta.env.VITE_API_URL}/user/login", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/user/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, password }),
       });
 
-      const data = await res.json();
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        throw new Error("Invalid JSON response from server");
+      }
+
       if (res.ok) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userId", data.user.userId);

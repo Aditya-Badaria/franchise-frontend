@@ -25,7 +25,7 @@ const Settings = () => {
 
       const token = localStorage.getItem("token");
 
-      const res = await fetch("${import.meta.env.VITE_API_URL}/user/changePassword", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/user/changePassword`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

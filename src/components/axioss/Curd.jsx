@@ -39,7 +39,7 @@ function Crud() {
     setIsSubmitting(true);
     
     try {
-      const url = "${import.meta.env.VITE_API_URL}/user/doSubmit";
+      const url = `${import.meta.env.VITE_API_URL}/user/doSubmit`;
       const response = await axios.post(url, formData, {
         headers: { 'Content-Type': 'application/json' }
       });
