@@ -74,7 +74,7 @@
             }
             const fetchApplications = async () => {
                 try {
-                    const response = await fetch('http://localhost:2004/applications');
+                    const response = await fetch('${import.meta.env.VITE_API_URL}/applications');
                     const data = await response.json();
                     setApplications(data);
                     setLoading(false);
@@ -103,7 +103,7 @@
             }
 
             try {
-                const response = await fetch('http://localhost:2004/user/updateStatus', {
+                const response = await fetch('${import.meta.env.VITE_API_URL}/user/updateStatus', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -136,7 +136,7 @@
             }
         
             try {
-                const response = await axios.delete(`http://localhost:2004/applications/${id}`);
+                const response = await axios.delete(`${import.meta.env.VITE_API_URL}/applications/${id}`);
         
                 if (response.data.status) {
                     alert("Application deleted successfully!");

@@ -23,7 +23,7 @@ const Dashboard = () => {
         }
       };
 
-      let url = `http://localhost:2004/api/dailysales/analytics?period=${period}`;
+      let url = `${import.meta.env.VITE_API_URL}/api/dailysales/analytics?period=${period}`;
       
       if (dateRange.startDate && dateRange.endDate) {
         url += `&startDate=${dateRange.startDate}&endDate=${dateRange.endDate}`;
@@ -59,7 +59,7 @@ const Dashboard = () => {
         }
       };
 
-      const response = await fetch(`http://localhost:2004/api/dailysales/monthly-analytics?year=${new Date().getFullYear()}`, config);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/dailysales/monthly-analytics?year=${new Date().getFullYear()}`, config);
       const data = await response.json();
       
       if (response.ok) {

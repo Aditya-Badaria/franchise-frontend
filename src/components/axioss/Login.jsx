@@ -16,7 +16,7 @@ const Login = ({ setUser }) => {
     e.preventDefault();
     setIsLoggingIn(true);
     try {
-      const res = await fetch("http://localhost:2004/user/login", {
+      const res = await fetch("${import.meta.env.VITE_API_URL}/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, password }),

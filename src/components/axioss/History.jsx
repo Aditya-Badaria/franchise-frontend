@@ -8,7 +8,7 @@ const History = () => {
     const fetchSalesHistory = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await fetch("http://localhost:2004/api/dailysales/history", {
+        const res = await fetch("${import.meta.env.VITE_API_URL}/api/dailysales/history", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
